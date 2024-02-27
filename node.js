@@ -1,16 +1,6 @@
-const readline = require('readline');
+const fs = require('fs');
 
-const rdln = readline.createInterface({
-    input:process.stdin,
-    output: process.stdout
-});
+const rf = fs.readFileSync("./files/input.txt", "utf-8");
+console.log(rf);
 
-rdln.question("Enter your name : ", (name)=>{
-    console.log("Your name is ", name);
-    rdln.close();
-});
-
-rdln.on("close", ()=>{
-    console.log("Interface is closed");
-    process.exit(0);
-});
+fs.writeFileSync("./files/output.txt", `Roshan's informations \n\n ${rf}`);
